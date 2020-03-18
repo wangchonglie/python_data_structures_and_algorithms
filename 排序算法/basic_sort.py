@@ -51,18 +51,22 @@ def insertion_sort(seq):
         seq[pos] = value
 
 
-def insertion_sort2(alist):
+def insertion_sort2(seq):
     # 从第二个位置，即下标为1的元素开始向前插入
-    for i in range(1, len(alist)):
+    for i in range(1, len(seq)):
         # 从第i个元素开始向前比较，如果小于前一个元素，交换位置
         for j in range(i, 0, -1):
-            if alist[j] < alist[j - 1]:
-                alist[j], alist[j - 1] = alist[j - 1], alist[j]
+            if seq[j] < seq[j - 1]:
+                seq[j], seq[j - 1] = seq[j - 1], seq[j]
+            else:
+                break
 
 
 def test_insertion_sort():
     seq = list(range(10))
     random.shuffle(seq)
+    insertion_sort(seq)
+    assert seq == sorted(seq)
     insertion_sort2(seq)
     assert seq == sorted(seq)
 
