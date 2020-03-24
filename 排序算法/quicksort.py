@@ -21,6 +21,9 @@ def test_quick_sort():
 # test_quick_sort()
 
 def partition(seq, beg, end):
+    """
+    将序列分隔为两部分, 并返回主元位置
+    """
     pivot_index = beg
     pivot = seq[pivot_index]
     left = beg + 1
@@ -30,7 +33,6 @@ def partition(seq, beg, end):
             right -= 1
         while left <= right and seq[left] < pivot:
             left += 1
-        print(left)
         if left > right:
             break
         else:
